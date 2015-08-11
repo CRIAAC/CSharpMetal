@@ -1,0 +1,165 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{037536F9-D9AD-42E0-8196-3DE255C13556}</ProjectGuid>
+    <OutputType>Exe</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>CSharpMetal</RootNamespace>
+    <AssemblyName>CSharpMetal</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup>
+    <StartupObject>CSharpMetal.Metaheuristics.NsgaIII.NsgaiiiMain</StartupObject>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="CsvHelper">
+      <HintPath>..\packages\CsvHelper.2.11.1.1\lib\net40-client\CsvHelper.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Core\Algorithm.cs" />
+    <Compile Include="Core\Operator.cs" />
+    <Compile Include="Core\Problem.cs" />
+    <Compile Include="Core\Solution.cs" />
+    <Compile Include="Core\SolutionSet.cs" />
+    <Compile Include="Core\BaseSolutionType.cs" />
+    <Compile Include="Core\BaseVariable.cs" />
+    <Compile Include="Encodings\SolutionsType\ArrayRealSolutionType.cs" />
+    <Compile Include="Encodings\SolutionsType\ArrayRealAndBinarySolutionType.cs" />
+    <Compile Include="Encodings\SolutionsType\BinaryRealSolutionType.cs" />
+    <Compile Include="Encodings\SolutionsType\BinarySolutionType.cs" />
+    <Compile Include="Encodings\SolutionsType\IntSolutionType.cs" />
+    <Compile Include="Encodings\SolutionsType\PermutationSolutionType.cs" />
+    <Compile Include="Encodings\SolutionsType\RealArraySolutionType.cs" />
+    <Compile Include="Encodings\SolutionsType\RealSolutionType.cs" />
+    <Compile Include="Encodings\Variables\ArrayReal.cs" />
+    <Compile Include="Encodings\Variables\Binary.cs" />
+    <Compile Include="Encodings\Variables\BinaryReal.cs" />
+    <Compile Include="Encodings\Variables\Int.cs" />
+    <Compile Include="Encodings\Variables\Permutation.cs" />
+    <Compile Include="Encodings\Variables\Real.cs" />
+    <Compile Include="Metaheuristics\NsgaIII\Cluster.cs" />
+    <Compile Include="Metaheuristics\NsgaIII\NsgaiiiMain.cs" />
+    <Compile Include="Metaheuristics\NsgaIII\ThetaNsgaiii.cs" />
+    <Compile Include="Metaheuristics\NsgaII\Nsgaii.cs" />
+    <Compile Include="Metaheuristics\NsgaII\NsgaiiMain.cs" />
+    <Compile Include="Operators\Mutation\BitFlipMutation.cs" />
+    <Compile Include="Problems\DTLZ\DTLZ1.cs" />
+    <Compile Include="Problems\ProblemFactory.cs" />
+    <Compile Include="Problems\ZDT\ZDT1.cs" />
+    <Compile Include="QualityIndicators\Epsilon.cs" />
+    <Compile Include="QualityIndicators\GenerationalDistance.cs" />
+    <Compile Include="QualityIndicators\Hypervolume.cs" />
+    <Compile Include="QualityIndicators\InvertedGenerationalDistance.cs" />
+    <Compile Include="QualityIndicators\QualityIndicator.cs" />
+    <Compile Include="QualityIndicators\Spread.cs" />
+    <Compile Include="QualityIndicators\Util\LexicoGraphicalComparator.cs" />
+    <Compile Include="QualityIndicators\Util\MetricsUtil.cs" />
+    <Compile Include="Util\Comparators\AggregativeComparator.cs" />
+    <Compile Include="Util\Comparators\BinaryTournamentComparator.cs" />
+    <Compile Include="Util\Comparators\CrowdingComparator.cs" />
+    <Compile Include="Util\Comparators\CrowdingDistanceComparator.cs" />
+    <Compile Include="Util\Comparators\DistanceToPopulationComparator.cs" />
+    <Compile Include="Util\Comparators\DominanceAndCrowdingDistanceComparator.cs" />
+    <Compile Include="Util\Comparators\DominanceComparator.cs" />
+    <Compile Include="Util\Comparators\EpsilonDominanceComparator.cs" />
+    <Compile Include="Util\Comparators\EpsilonObjectiveComparator.cs" />
+    <Compile Include="Util\Comparators\EqualSolutions.cs" />
+    <Compile Include="Util\Comparators\ConstraintViolationComparator.cs" />
+    <Compile Include="Util\Comparators\FitnessAndCrowdingDistanceComparator.cs" />
+    <Compile Include="Util\Comparators\FitnessComparator.cs" />
+    <Compile Include="Util\Comparators\FPGAFitnessComparator.cs" />
+    <Compile Include="Util\Comparators\NumberOfViolatedConstraintComparator.cs" />
+    <Compile Include="Util\Comparators\ObjectiveComparator.cs" />
+    <Compile Include="Util\Comparators\OverallConstraintViolationComparator.cs" />
+    <Compile Include="Util\Comparators\RankComparator.cs" />
+    <Compile Include="Util\Comparators\SolutionComparator.cs" />
+    <Compile Include="Util\Comparators\ThetaComparator.cs" />
+    <Compile Include="Util\Comparators\ViolationThresholdComparator.cs" />
+    <Compile Include="Operators\Crossover\BlxAlphaCrossover.cs" />
+    <Compile Include="Operators\Crossover\Crossover.cs" />
+    <Compile Include="Operators\Crossover\CrossoverFactory.cs" />
+    <Compile Include="Operators\Crossover\DifferentialEvolutionCrossover.cs" />
+    <Compile Include="Operators\Crossover\HuxCrossover.cs" />
+    <Compile Include="Operators\Crossover\PmxCrossover.cs" />
+    <Compile Include="Operators\Crossover\SbxCrossover.cs" />
+    <Compile Include="Operators\Crossover\SinglePointCrossover.cs" />
+    <Compile Include="Operators\Crossover\TwoPointsCrossover.cs" />
+    <Compile Include="Operators\Mutation\BaseMutation.cs" />
+    <Compile Include="Operators\Mutation\MutationFactory.cs" />
+    <Compile Include="Operators\Mutation\NonUniformMutation.cs" />
+    <Compile Include="Operators\Mutation\PolynomialBitFlipBaseMutation.cs" />
+    <Compile Include="Operators\Mutation\PolynomialMutation.cs" />
+    <Compile Include="Operators\Mutation\SwapMutation.cs" />
+    <Compile Include="Operators\Mutation\UniformMutation.cs" />
+    <Compile Include="Operators\Selection\BestSolutionSelection.cs" />
+    <Compile Include="Operators\Selection\BinaryTournament.cs" />
+    <Compile Include="Operators\Selection\BaseSelection.cs" />
+    <Compile Include="Operators\Selection\BinaryTournament2.cs" />
+    <Compile Include="Operators\Selection\DifferentialEvolutionSelection.cs" />
+    <Compile Include="Operators\Selection\PESA2Selection.cs" />
+    <Compile Include="Operators\Selection\RandomSelection.cs" />
+    <Compile Include="Operators\Selection\RankingAndCrowdingSelection.cs" />
+    <Compile Include="Operators\Selection\SelectionFactory.cs" />
+    <Compile Include="Operators\Selection\WorstSolutionSelection.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Util\AdaptiveGrid.cs" />
+    <Compile Include="Util\Archives\AdaptiveGridArchive.cs" />
+    <Compile Include="Util\Archives\BaseArchive.cs" />
+    <Compile Include="Util\Archives\CrowdingArchive.cs" />
+    <Compile Include="Util\CustomType\BitSet.cs" />
+    <Compile Include="Util\Distance.cs" />
+    <Compile Include="Util\Clonable\ITCloneable.cs" />
+    <Compile Include="Util\MetalMath.cs" />
+    <Compile Include="Util\MinFastSort.cs" />
+    <Compile Include="Util\NonDominatedSolutionList.cs" />
+    <Compile Include="Util\PermutationUtility.cs" />
+    <Compile Include="Util\PseudoRandom.cs" />
+    <Compile Include="Util\RandomPermutation.cs" />
+    <Compile Include="Util\Ranking.cs" />
+    <Compile Include="Util\ThetaNonDominatedSort.cs" />
+    <Compile Include="Util\Wrapper\XReal.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Experiments\" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="packages.config" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>
